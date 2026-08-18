@@ -30,12 +30,12 @@ MODEL_PATH         = "models/mlp.pkl"
 SCALER_PATH        = "data/processed/scaler.pkl"
 FEATURE_NAMES_PATH = "data/processed/feature_names.txt"
 TRAIN_X_PATH       = "data/processed/X_train.csv"
-INDEX_HTML         = "index.html"
+INDEX_HTML         = "frontend/index.html"
 
 # ── FastAPI app ────
 app = FastAPI(
     title="PhishGuard API",
-    description="MSc Cybersecurity — Phishing Website Detection",
+    description="MSc Information Technology — Phishing Website Detection",
     version="2.0.0",
 )
 
@@ -142,7 +142,7 @@ try:
         )
 
         # Generate global importance; this also writes shap_summary_mlp.png / shap_bar_mlp.png
-        global_out_dir = "outputs"
+        global_out_dir = "results/shap"
         os.makedirs(global_out_dir, exist_ok=True)
         _global_shap = _shap_analyzer.global_summary(
             X_bg,
